@@ -1,0 +1,13 @@
+program z1;
+var a,b,c,k:integer;
+begin
+  write('стороны треугольника');
+  read(a,b,c);
+  k:=0;
+  if a=b then k:=k+1;
+  if a=c then k:=k+1;
+  if b=c then k:=k+1;
+  if k=0 then write('no');
+  if k=1 then write('a=b');
+  if k=3 then write('a=b=c');
+end.
