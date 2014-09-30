@@ -1,12 +1,12 @@
 var x,y,u:real;
 begin
- writeln('введите х ');
+ writeln('РІРІРµРґРёС‚Рµ С… ');
  read(x);
- writeln('ввидите у ');
+ writeln('РІРІРµРґРёС‚Рµ Сѓ ');
  read(y);
  if (x*x+y*y<0.25) and (x>0) and (y>0) or (y<0) then
   u:=y*y+2*x*y
  else
   u:=x*x+2*x*y;
- writeln('результат ', u);
+ writeln('СЂРµР·СѓР»СЊС‚Р°С‚ ', u);
 end.
