@@ -19,6 +19,6 @@ begin
   end;
  if (s>k) then k:=s;
  writeln;
- writeln('результат ', k);
+ writeln('СЂРµР·СѓР»СЊС‚Р°С‚ ', k);
 end.
  
