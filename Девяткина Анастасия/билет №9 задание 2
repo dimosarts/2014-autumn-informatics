@@ -1,0 +1,16 @@
+var x,y,z,xkv,ykv,zkv: real;
+begin 
+writeln ('Введите три числа');
+read (x, y, z);
+if (x=y) or (x=z) or (y=z) 
+then begin xkv:=x*x;
+writeln ('Квадрат первого числа равен ', xkv);
+ykv:=y*y;
+writeln ('Квадрат второго числа равен ', ykv);
+zkv:=z*z;
+writeln ('Квадрат третьего числа равен ', zkv);
+end
+else 
+writeln (x,' ', y,' ', z,' ');
+end. 
+ 
