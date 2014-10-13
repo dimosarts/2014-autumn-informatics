@@ -1,4 +1,4 @@
-const N=10;
+﻿const N=10;
 var
     A: array [1..N] of integer;
     i, j, k: integer;
@@ -13,7 +13,7 @@ begin
    for j:=1 to (i-1) do 
      if A[i]=A[j] then 
        f:=false;
-   if f=true then 
+   if f=true then  
      k2:=k+1;
    f:=true;
  end;
