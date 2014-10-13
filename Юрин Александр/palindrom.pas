@@ -1,8 +1,8 @@
-const n=10;
+﻿const n=10;
 var a:array [1..n]of integer;
 i,s:integer;
 begin
- writeln('Введите массив из n чисел');
+ writeln('Введите массив из n чисел' );
  for i:=1 to n do 
   read(a[i]);
  for i:=1 to ((n div 2) +1) do 
