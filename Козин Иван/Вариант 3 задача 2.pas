@@ -1,7 +1,7 @@
 program var3num2;
 var
   n,i,cr1,cr2,num:integer;
-begin
+begin 
 write('¬ведите количество элементов последовательности: ');
 readln(n);
 writeln('¬ведите ',n,' членов последовательности: ');
