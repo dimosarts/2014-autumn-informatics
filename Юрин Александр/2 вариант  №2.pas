@@ -3,15 +3,15 @@ var a:array [1..n,1..n]of integer;
 i,j,min,max:integer;
 begin
 randomize;
-writeln("СЌР»РµРјРµРЅС‚С‹ РјР°С‚СЂРёС†С‹");
+writeln('элементы матрицы ');
 for i:=1 to n do begin
 for j:=1 to n do begin 
 a[i,j]:=random(100);
 end;
-end;
+end; 
 for i:=1 to n do begin
 for j:=1 to n do
-write (a[i,j], ' ');
+write (a[i,j], ' ');  
 writeln;
 end;
  min:=a[1,1];
@@ -25,6 +25,6 @@ for i:=1 to n do
   end; 
   if min>max then  max:=min; 
  end;
-  writeln('РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РёР· РјРёРЅРёРјР°Р»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРєРё',' ',max);
+  writeln('максимальный элемент из минимальных элементов строки',' ',max);  
   end.
    
