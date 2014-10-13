@@ -2,7 +2,7 @@ const n=10;
 var a:array [1..n]of integer;
 i,s:integer;
 begin
- writeln('Введите массив из n чисел');
+ writeln('Р’РІРµРґРёС‚Рµ РјР°СЃСЃРёРІ РёР· n С‡РёСЃРµР»');
  for i:=1 to n do 
   read(a[i]);
  for i:=1 to ((n div 2) +1) do 
@@ -13,7 +13,7 @@ begin
    break;
    end;
  if (s=1) then
-  writeln('Является палиндромом ') 
+  writeln('РЇРІР»СЏРµС‚СЃСЏ РїР°Р»РёРЅРґСЂРѕРјРѕРј ') 
  else 
-  writeln('Не является полиндромом ');
+  writeln('РќРµ СЏРІР»СЏРµС‚СЃСЏ РїРѕР»РёРЅРґСЂРѕРјРѕРј ');
 end.  
