@@ -4,7 +4,7 @@ const
   m = 10;
 
 type
-  mas = array[1..m, 1..m] of real;
+  mas = array[1..m, 1..m] of integer;//ffff
 
 var
   a: mas;
@@ -15,7 +15,9 @@ var
 
 
 
+
 begin
+  writeln('¬ведите диапазон чисел в массиве');
   readln(k);
   randomize;
   for i := 1 to m do
@@ -29,22 +31,21 @@ begin
       write(a[i, j]:5);
     writeln(' ');
   end;
-  for i := 1 to m do
+  for i := 2 to m do
   begin
-    sum1 := sum1 + a[i, 1];
+    sum := sum + a[i, 1];
   end;
   for j := 1 to m do
   begin
-    sum2 := sum2 + a[1, j];
+    sum := sum + a[1, j];
   end;
-  for i := 1 to m do
+  for i := 2 to m do
   begin
-    sum3 := sum3 + a[i, m];
+    sum := sum + a[i, m];
   end;
-  for j := 1 to m do
+  for j := 2 to m-1 do
   begin
-    sum4 := sum4 + a[m, j];
+    sum := sum + a[m, j];
   end;
-  sum := sum1 + sum2 + sum3 + sum4 - a[1, 1] - a[1, m] - a[m, 1] - a[m, m];
-  writeln(sum);
+    writeln(sum);
 end.
