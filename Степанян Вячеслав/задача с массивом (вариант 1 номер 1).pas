@@ -1,21 +1,22 @@
 const N=10;
 var
     A: array [1..N] of integer;
-    i, j, k, f: integer;
+    i, j, k: integer;
+    f: boolean;
 begin
- writeln ('введите эллементы массива');
+ writeln ('РІРІРµРґРёС‚Рµ СЌР»Р»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°');
  for i:=1 to N do 
    readln (A[i]);
  k:=1;
- f:=0;
+ f:=true;
  for i:=2 to N do begin
    for j:=1 to (i-1) do 
-     if A[i]<>A[j] then 
-       f:=f+1;
-   if f=i-1 then 
-     k:=k+1;
-   f:=0;
+     if A[i]=A[j] then 
+       f:=false;
+   if f=true then 
+     k2:=k+1;
+   f:=true;
  end;
- writeln ('кол-во различных элементов массива:');
+ writeln ('РєРѕР»-РІРѕ СЂР°Р·Р»РёС‡РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°:');
  writeln (k);
 end. 
