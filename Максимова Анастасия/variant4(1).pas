@@ -10,11 +10,11 @@ writeln('vvedite a,b,c');
     else writeln('korney net')
   end
   else 
-    if a = 0 then writeln('1 koren')
-    else 
-      if (b * b - 4 * a * c) > 0 then writeln('2 kornya')
-      else 
-        if (b * b - 4 * a * c) = 0 then writeln('1 koren')
-        else writeln('korney net');
+  if a = 0 then writeln('1 koren')
+  else 
+  if (b * b - 4 * a * c) > 0 then writeln('2 kornya')
+  else 
+  if (b * b - 4 * a * c) = 0 then writeln('1 koren')
+  else writeln('korney net');
   readln();
-end.     
+end.
