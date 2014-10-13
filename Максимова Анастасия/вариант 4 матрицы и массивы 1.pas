@@ -28,6 +28,6 @@ s:=s+a[i]
 else
 for i:=k1+1 to k2-1 do
 s:=s+a[i];
-writeln('summa elemenov mezdu max i min ',s);
+writeln('summa elemenov mezdu max i min  ',s);
 readln();
 end.
