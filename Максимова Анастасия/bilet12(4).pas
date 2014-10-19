@@ -14,4 +14,4 @@ writeln('vvedite x');
   writeln('znachenie:');
   writeln(s);
   readln();
-end.       
+end.
