@@ -4,6 +4,8 @@ begin
 x:=1;
 y:=0;
 
+writeln('y=sin1.0+sin1.1+sin1.2+...+sin2.0');
+
 while x<=2 do
    begin
    y:=y+sin(x);
