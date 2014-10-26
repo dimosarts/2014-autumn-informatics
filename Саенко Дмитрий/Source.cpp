@@ -246,8 +246,7 @@ void Display()
 	glTexCoord2f(0.0, 0.0); glVertex2f(Height + 60, 460);
 	glEnd();//-------------------------------------------новая игра-----------------------------
 	glBindTexture(GL_TEXTURE_2D, 0);
-	/*drawCircle(x, y, r - 10, 30);*/
-	glPointSize(58.0);
+	glPointSize(15.0);
 	glEnable(GL_POINT_SMOOTH);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
