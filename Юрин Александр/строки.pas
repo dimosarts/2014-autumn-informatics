@@ -2,7 +2,7 @@ var
 s:string ;
 k:integer;
 begin 
-k:=1;
+k:=1; 
  read(s);
  while k>0 do begin
  k:=pos('..',s);
