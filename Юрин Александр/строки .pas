@@ -1,4 +1,3 @@
-program w ;
 var
 s:string;
 k:integer;
