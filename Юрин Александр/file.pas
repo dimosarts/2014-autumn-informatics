@@ -1,3 +1,4 @@
+program zadacha ¹1
 const n=20 ;
 var
 f1,f2:text;
