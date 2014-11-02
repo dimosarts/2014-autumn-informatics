@@ -1,4 +1,4 @@
-const n=100;
+const n=100 ;
 var a:array [1..n] of real;
  s,k:real;
  i:integer;
