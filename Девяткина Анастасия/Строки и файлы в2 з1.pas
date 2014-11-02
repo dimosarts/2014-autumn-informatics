@@ -15,7 +15,7 @@ begin
   if (s1=' ') then writeln('Полученная строка не содержит элементов')
   else begin
   writeln ('Полученная строка имеет вид', s1);
-   j:=length (s1);
+   j:=length (s1)-1;
   writeln ('Длина полученной строки ', j);
   end;
   end.
