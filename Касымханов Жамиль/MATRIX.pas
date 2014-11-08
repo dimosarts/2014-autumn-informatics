@@ -5,20 +5,32 @@ var
   S, I, J, L: Integer;
 
 begin
-  WriteLn('Введите размерность матрицы:');
+{randomize;
+L:=random(10);
+  FOR I := 1 to L do
+     FOR J := 1 to L do
+        A[I, J] := random(100)+1;
+  FOR I := 1 to L do
+     begin
+        FOR J := 1 to L do
+                Write(A[I, J],' ');
+                    Writeln; end;}
+  WriteLn('Vvedite razmernost');
   ReadLn(L);
-  WriteLn('Введите матрицу:');
+  WriteLn('Vvedite matricu');
+  S := 0;
   for I := 1 to L do
     for J := 1 to L do
+    begin
       Read(A[I, J]);
+      S := S + A[I, J];
+    end;
   ReadLn;
-  for I := 1 to L do
-    S := S + A[I, 1] + A[I, L];
-  for J := 1 to L do
-    S := S + A[1, J] + A[L, J];
-  S := S - A[1, 1] - A[1, L] - A[L, 1] - A[L ,L];
-  WriteLn('Cумма элементов по краям матрицы:    ',S);
-  ReadLn;
+  for I := 2 to L-1 do
+     for J := 2 to L-1 do
+      S := S - A[I, J];
+  WriteLn('Summa: ',S);
+
 
 
 end.

@@ -10,12 +10,14 @@ begin
 
     var start:=System.DateTime.Now;
 
-  for x := 1 to 1000000 do
+  for x := 1 to 1000000000 do
   p:=0;
-  for I:=1 to Length(S) do
-    if s[I]=',' then P := I;
+  For I:= Length(S) downto 1 do
+  If S[I] = ',' then begin p:=I; break;  end;
   WriteLn('Poziciya poslednei zapyatoi:', P);
 
     var finish:=System.DateTime.Now;
     writeln((finish-start).TotalMilliseconds);
 end.
+
+{3213,12,31,321,32,132,1321,3}
