@@ -3,39 +3,25 @@ program Tfile;
 
 var
   f, g: text;
-  i,  j, k: integer;
-  s, s1, s2,s3: string;
+  i,  j, k, m: integer;
+  s, s5, s2, s3, s4: string;
 
 begin
   j := 0;
   k := 0;
-  s1 := ' ';
+  
+  s4 := '-';
   assign(f, 'C:\k01-221\2014-autumn-informatics\Маслов Дмитрий\FileF.txt');
   assign(g, 'C:\k01-221\2014-autumn-informatics\Маслов Дмитрий\FileG.txt');
   reset(f);
-  reset(g);
+  rewrite(g);
   writeln('Исходный файл выглядит таким образом:');
   while not eof(f) do
   begin
     readln(f, s);
     writeln(s);
+    k := k + 1;
   end;
-  s2 := s;
-  close(f);
-  k := length(s);
-  for i:=1 to k do
-  begin
-  repeat
-  j:=j+1 until
-  s[i]= s1;
-  s3:=Copy(s,i,j);
-  writeln(s3);
-  end;
-  
-  
-  
-  
-  
-  
-  
+  reset(f);
+ 
 end.
