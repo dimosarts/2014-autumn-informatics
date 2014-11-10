@@ -25,7 +25,11 @@ const
 var
   dp, dq, p, q, x, y, xp, yp: real;
   j, i, k: word;
+  f1: file of byte;
 begin
+  Assign(f1, 'C:\Users\k01-221\2014-autumn-informatics\Эйдлина Мария\1.txt');
+  Rewrite(f1);
+  reset(f1);
   dp := (pmax - pmin) / N;
   dq := (qmax - qmin) / M;
   for j := 0 to N - 1 do
@@ -52,7 +56,9 @@ begin
         end;
       end; 
       a[j, i] := k;
+      write(f1, a[j, i]);
     end;
+   close(f1); 
 end;
 
 procedure Julia(p, q: real; var a: NewArray);{Построение мн-ва Жюлиа}
@@ -62,7 +68,11 @@ var
   dp, dq, x, y, xp, yp: real;
   j, i, k: word;
   e, l: integer;
+  f2: file of byte;
 begin
+  Assign(f2, 'C:\Users\k01-221\2014-autumn-informatics\Эйдлина Мария\2.txt');
+  Rewrite(f2);
+  reset(f2);
   dp := (pmax - pmin) / N;
   dq := (qmax - qmin) / M;  
   for j := 0 to N - 1 do
@@ -89,7 +99,9 @@ begin
         end;
       end; 
       a[j, i] := k;
+      write(f2, a[j, i]);
     end; 
+   close(f2); 
 end;
 
 procedure Palitra(o: NewArray; pal1: byte);{Палитра и вывод на экран}
