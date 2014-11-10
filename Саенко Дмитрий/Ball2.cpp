@@ -1,3 +1,6 @@
+// Ball2.cpp: определяет точку входа для консольного приложения.
+//
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,6 +14,8 @@
 #include <gl/Glu.h>
 #include <gl/glut.h>
 #include <gl/glaux.h>
+#include <cstdlib>
+#include <string>
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
 #pragma comment(lib, "glaux.lib")
@@ -18,7 +23,7 @@
 
 using namespace std;
 
-GLuint texture[3];
+GLuint texture[5];
 queue < pair <int, int> > q;
 
 float Width = 985.0;
@@ -33,6 +38,7 @@ int ty[] = { 0, 0, 1, -1 };
 int mas1[45][45];
 
 vector < pair < int, int > > line;
+string s, s1;
 
 int coord_x = 0;
 int coord_y = 0;//положение мышки
@@ -45,8 +51,11 @@ int a = 0;
 int ab[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 int z = 0;
 int Sum = 0;
+int sum2 = 0;
 int ind_x = Height + 10, ind_y = Height - 200, ind = 30, ind_x1 = Height + 30, ind_y1 = Height - 170;
 int life = 3;
+int score = 0;
+int score1, score2;
 
 int r = 15;//отступ
 
@@ -73,16 +82,32 @@ void fill_area(int a, int b) {
 		}
 	}
 	for (int i = 0; i < 45; i++)
-		for (int j = 0; j < 45; j++)
+	for (int j = 0; j < 45; j++)
+	{
+		if (!mas1[i][j])
+			mas1[i][j] = -2;
+		else if (mas1[i][j] == 5)
 		{
-			if (!mas1[i][j])
-				mas1[i][j] = -2;
-			else if (mas1[i][j] == 5)
-			{
-				Sum++;
-				mas1[i][j] = 0;
-			}
+			Sum++;
+			mas1[i][j] = 0;
 		}
+	}
+	score = sum2 + 1936 - Sum;
+	getline(cin, s);
+	getline(cin, s1);
+	for (int i = 12; i < s.size(); i++)
+	{
+		if (s[i] == ' ')
+			score1 = atoi(s.substr(12, i - 11).c_str());
+		if (s1[i] == ' ')
+			score2 = atoi(s1.substr(12, i - 11).c_str());
+	}
+	score1 = score;
+	freopen("output.txt", "w", stdout);
+	if (score > score2)
+		cout << "You score : " << score << "          " << endl << "Max score : " << score << "          ";
+	else
+		cout << "You score : " << score1 << "          " << endl << "Max score : " << score2 << "          ";
 }
 
 void polygon(int a, int b, int c, int d) {
@@ -175,7 +200,9 @@ void LoadTextures() {
 	AUX_RGBImageRec *texture1 = auxDIBImageLoadA("run.bmp");
 	AUX_RGBImageRec *texture2 = auxDIBImageLoadA("pause.bmp");
 	AUX_RGBImageRec *texture3 = auxDIBImageLoadA("new.bmp");
-	glGenTextures(4, &texture[0]);
+	AUX_RGBImageRec *texture4 = auxDIBImageLoadA("score.bmp");
+	AUX_RGBImageRec *texture5 = auxDIBImageLoadA("maxscore.bmp");
+	glGenTextures(5, &texture[0]);
 	glBindTexture(GL_TEXTURE_2D, texture[0]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -188,6 +215,14 @@ void LoadTextures() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, texture3->sizeX, texture3->sizeY, 0, GL_RGB, GL_UNSIGNED_BYTE, texture3->data);
+	glBindTexture(GL_TEXTURE_2D, texture[3]);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexImage2D(GL_TEXTURE_2D, 0, 3, texture4->sizeX, texture4->sizeY, 0, GL_RGB, GL_UNSIGNED_BYTE, texture4->data);
+	glBindTexture(GL_TEXTURE_2D, texture[4]);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexImage2D(GL_TEXTURE_2D, 0, 3, texture5->sizeX, texture5->sizeY, 0, GL_RGB, GL_UNSIGNED_BYTE, texture5->data);
 }
 
 void Display()
@@ -206,9 +241,9 @@ void Display()
 		polygon(ind_x + ind * i, ind_x1 + ind * i, ind_y + 40, ind_y1 + 40);//жизни
 	glColor3f(0.1, 0.1, 0.7);//--------------------------рамка----------------------------
 	for (int i = 0; i < 45; i++)
-		for (int j = 0; j < 45; j++)
-			if (mas1[i][j])
-				polygon(j * r, j * r + r, i * r, i * r + r);
+	for (int j = 0; j < 45; j++)
+	if (mas1[i][j])
+		polygon(j * r, j * r + r, i * r, i * r + r);
 	//-------------------------------------------------------------------------------------
 	glColor3f(0.0, 0.0, 0.0);//---------------------------------курсор------------------------
 	for (int i = 0; i < line.size(); i++)
@@ -245,6 +280,20 @@ void Display()
 	glTexCoord2f(1.0, 0.0); glVertex2f(Width - 60, 460);
 	glTexCoord2f(0.0, 0.0); glVertex2f(Height + 60, 460);
 	glEnd();//-------------------------------------------новая игра-----------------------------
+	glBindTexture(GL_TEXTURE_2D, texture[3]);
+	//glBegin(GL_POLYGON);//----------------------------------------------------------------
+	//glTexCoord2f(0.0, 1.0); glVertex2f(Height, 250);
+	//glTexCoord2f(1.0, 1.0); glVertex2f(Width - 140, 250);
+	//glTexCoord2f(1.0, 0.0); glVertex2f(Width - 140, 320);
+	//glTexCoord2f(0.0, 0.0); glVertex2f(Height, 320);
+	//glEnd();//-------------------------------------------очки-----------------------------
+	//glBindTexture(GL_TEXTURE_2D, texture[4]);
+	//glBegin(GL_POLYGON);//----------------------------------------------------------------
+	//glTexCoord2f(0.0, 1.0); glVertex2f(Height + 20, 300);
+	//glTexCoord2f(1.0, 1.0); glVertex2f(Width - 100, 300);
+	//glTexCoord2f(1.0, 0.0); glVertex2f(Width - 100, 400);
+	//glTexCoord2f(0.0, 0.0); glVertex2f(Height + 20, 400);
+	//glEnd();//-------------------------------------------очки. максимальные-----------------------------
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glPointSize(15.0);
 	glEnable(GL_POINT_SMOOTH);
@@ -299,8 +348,8 @@ void Display()
 		if (t > 1)
 			t--;
 		for (int i = 0; i < 45; i++)
-			for (int j = 0; j < 45; j++)
-				mas1[i][j] = 0;
+		for (int j = 0; j < 45; j++)
+			mas1[i][j] = 0;
 		for (int i = 0; i < 45; i++)
 		{
 			mas1[0][i] = -2;
@@ -309,6 +358,7 @@ void Display()
 			mas1[i][44] = -2;
 		}
 		Sum = 0;
+		sum2 += 1936;
 		ax = 0;
 		ay = 0;
 		line.clear();
@@ -429,6 +479,7 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(Width, Height);
+	freopen("output.txt", "r+", stdin);
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("Ball");
 	glutDisplayFunc(Display);
