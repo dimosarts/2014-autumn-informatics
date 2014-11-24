@@ -53,7 +53,7 @@ procedure later(f: file of book);
   while not eof(f) do
     begin
     read(f,p);
-    if (comparestr(p.author,author)=0)and(p.release_date>release_date) then writeln(p.title,' ',p.release_date,' ',p.author);
+    if (p.author=author)and(p.release_date>release_date) then writeln(p.title,' ',p.release_date,' ',p.author);
     end;
   close(f);
   end;
