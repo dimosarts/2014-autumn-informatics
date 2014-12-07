@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 202
-  Top = 125
+  Left = 150
+  Top = 138
   BorderStyle = bsNone
   Caption = #1079#1084#1077#1081#1082#1072
   ClientHeight = 359
@@ -36,8 +36,8 @@ object Form1: TForm1
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 368
-    Top = 328
+    Left = 376
+    Top = 336
     Width = 58
     Height = 13
     Caption = 'by we v.1.0'
