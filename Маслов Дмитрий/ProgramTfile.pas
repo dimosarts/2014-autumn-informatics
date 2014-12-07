@@ -2,10 +2,10 @@ program Tfile;
 
 type
   pupil = record
-    Name: string[8];
-    Surname: string[7];
+    Name: string[20];
+    Surname: string[20];
     Form: string[3];
-    FormWord: string[2];
+    FormWord: string[3];
   end;
 
 var
@@ -26,16 +26,16 @@ begin
     begin
       begin
         write(i, '-ая фамилия:');
-        read(surname);
+        readln(surname);
         write('Имя:');
-        read(name);
+        readln(name);
         write('Класс:');
-        read(Form);
+        readln(Form);
         write('Буква класса:');
-        read(FormWord);
+        readln(FormWord);
       end;
       write(t, p);
     end;
-  Writeln('Создание списка окончено');
+  Writeln('Оформление файла закончено');
   close(t);
 end.
