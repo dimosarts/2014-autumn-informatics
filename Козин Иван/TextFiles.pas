@@ -1,11 +1,11 @@
-program text;
+program textfiles;
 procedure yrsearch(f:textfile;year:integer);
   var
     s,s1,s2:string;
     n1,l,k,i:integer;
     found:boolean;
   begin
-  writeln('Список автомобилей, удовлетворяющих условию:');
+  writeln('Г‘ГЇГЁГ±Г®ГЄ Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ©, ГіГ¤Г®ГўГ«ГҐГІГўГ®Г°ГїГѕГ№ГЁГµ ГіГ±Г«Г®ГўГЁГѕ:');
   while not eof(f) do
     begin
     readln(f, s);
@@ -24,7 +24,7 @@ procedure yrsearch(f:textfile;year:integer);
         found:=true;
         end;
     end;
-    if not found then write('Не найдено таких автомобилей.');
+    if not found then write('ГЌГҐ Г­Г Г©Г¤ГҐГ­Г® ГІГ ГЄГЁГµ Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ©.');
  end;
 procedure cardel(f:textfile;s:string);
   var
@@ -49,7 +49,7 @@ procedure cardel(f:textfile;s:string);
     if s1=s then found:=true
     else writeln(temp,str);
     end;
-  if found=false then writeln('Не найдено таких автомобилей.');
+  if found=false then writeln('ГЌГҐ Г­Г Г©Г¤ГҐГ­Г® ГІГ ГЄГЁГµ Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ©.');
   close(f);
   close(temp);
   rewrite(f);
@@ -64,14 +64,14 @@ procedure cardel(f:textfile;s:string);
   end;
 function exitcall(p:integer):boolean;
   begin
-  writeln('Операция завершена. Выйти из программы?');
-  writeln('1 - Да, выйти');
-  writeln('2 - Нет, вернуться в меню');
+  writeln('ГЋГЇГҐГ°Г Г¶ГЁГї Г§Г ГўГҐГ°ГёГҐГ­Г . Г‚Г»Г©ГІГЁ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»?');
+  writeln('1 - Г„Г , ГўГ»Г©ГІГЁ');
+  writeln('2 - ГЌГҐГІ, ГўГҐГ°Г­ГіГІГјГ±Гї Гў Г¬ГҐГ­Гѕ');
   readln(p);
     repeat
     if p=1 then exitcall:=true
     else if p=2 then exitcall:=false
-    else writeln('Действие не выбрано');
+    else writeln('Г„ГҐГ©Г±ГІГўГЁГҐ Г­ГҐ ГўГ»ГЎГ°Г Г­Г®');
     until (p=1) or (p=2);
   end;
 var
@@ -82,17 +82,17 @@ var
 begin
 assign(f, 'C:\Users\k01-221\carlist.txt');
 repeat
-writeln('Что нужно сделать с файлом?');
-writeln('1 - Найти автомобили, выпущенные не позднее определенного года');
-writeln('2 - Добавить автомобиль');
-writeln('3 - Удалить автомобиль');
-writeln('4 - Выход из программы');
+writeln('Г—ГІГ® Г­ГіГ¦Г­Г® Г±Г¤ГҐГ«Г ГІГј Г± ГґГ Г©Г«Г®Г¬?');
+writeln('1 - ГЌГ Г©ГІГЁ Г ГўГІГ®Г¬Г®ГЎГЁГ«ГЁ, ГўГ»ГЇГіГ№ГҐГ­Г­Г»ГҐ Г­ГҐ ГЇГ®Г§Г¤Г­ГҐГҐ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г®ГЈГ® ГЈГ®Г¤Г ');
+writeln('2 - Г„Г®ГЎГ ГўГЁГІГј Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј');
+writeln('3 - Г“Г¤Г Г«ГЁГІГј Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј');
+writeln('4 - Г‚Г»ГµГ®Г¤ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»');
 readln(purpose);
-stand:='МАРКА НОМЕР ФАМИЛИЯ_ВЛАДЕЛЬЦА ГОД_ВЫПУСКА';
+stand:='ГЊГЂГђГЉГЂ ГЌГЋГЊГ…Гђ Г”ГЂГЊГ€Г‹Г€Гџ_Г‚Г‹ГЂГ„Г…Г‹ГњГ–ГЂ ГѓГЋГ„_Г‚Г›ГЏГ“Г‘ГЉГЂ';
 if purpose=1 then
   begin
   reset(f);
-  writeln('Введите дату, не позднее которой должен быть выпущен автомобиль: ');
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г ГІГі, Г­ГҐ ГЇГ®Г§Г¤Г­ГҐГҐ ГЄГ®ГІГ®Г°Г®Г© Г¤Г®Г«Г¦ГҐГ­ ГЎГ»ГІГј ГўГ»ГЇГіГ№ГҐГ­ Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј: ');
   readln(year);
   yrsearch(f,year);
   ext:=exitcall(p);
@@ -100,7 +100,7 @@ if purpose=1 then
   end
 else if purpose=2 then
   begin
-  writeln('Введите новый автомобиль в формате:',stand);
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГ»Г© Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј Гў ГґГ®Г°Г¬Г ГІГҐ:',stand);
   readln(s);
   append(f);
   writeln(f, s);
@@ -110,7 +110,7 @@ else if purpose=2 then
 else if purpose=3 then
   begin
   reset(f);
-  writeln('Введите автомобиль, который нужно удалить, в формате:',stand);
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј, ГЄГ®ГІГ®Г°Г»Г© Г­ГіГ¦Г­Г® ГіГ¤Г Г«ГЁГІГј, Гў ГґГ®Г°Г¬Г ГІГҐ:',stand);
   readln(s);
   cardel(f, s);
   ext:=exitcall(p);
@@ -120,6 +120,6 @@ else if purpose=4 then
   begin
   exit;
   end
-else writeln('Действие не выбрано.');
+else writeln('Г„ГҐГ©Г±ГІГўГЁГҐ Г­ГҐ ГўГ»ГЎГ°Г Г­Г®.');
 until ext=true;
 end.
