@@ -25,4 +25,4 @@ begin
    write (sp, spisok);
   end;
  close (sp);
-end.
+end. 

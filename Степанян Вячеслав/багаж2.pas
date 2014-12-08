@@ -1,3 +1,4 @@
+
 TYPE
  jir = record
   fio: string[20];
