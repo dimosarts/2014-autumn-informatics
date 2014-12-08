@@ -4,9 +4,9 @@ var
   S, I, L, K, M, Max, Min: Integer;
 
 begin
-  WriteLn('Ç¢•§®‚• §´®≠„ ¨†··®¢†:');
+  WriteLn('–í–≤–µ–¥–∏—Ç–µ –¥–ª–∏–Ω—É –º–∞—Å—Å–∏–≤–∞: ');
   ReadLn(L);
-  WriteLn('Ç¢•§®‚• ¨†··®¢:');
+  WriteLn('–í–≤–µ–¥–∏—Ç–µ –º–∞—Å—Å–∏–≤: ');
   for I := 1 to L do
     Read(A[I]);
   ReadLn;
@@ -25,6 +25,7 @@ begin
   end;
   for I := K+1 to M-1 do
     S := S + A[I];
-  WriteLn('C„¨¨†:', S);
+    S := S - A[1];
+  WriteLn('C—É–º–º–∞: ', S);
   ReadLn;
 end.
