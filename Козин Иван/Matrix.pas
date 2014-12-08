@@ -1,11 +1,11 @@
-program var3number2;
+program matrix;
 var
   a:array [1..1024,1..1024] of integer;
   size,i,j,sum:integer;
 begin
-write('Введите рамеры квадратной матрицы: ');
+write('Г‚ГўГҐГ¤ГЁГІГҐ Г°Г Г¬ГҐГ°Г» ГЄГўГ Г¤Г°Г ГІГ­Г®Г© Г¬Г ГІГ°ГЁГ¶Г»: ');
 readln(size);
-writeln('Матрица: ');
+writeln('ГЊГ ГІГ°ГЁГ¶Г : ');
 for i:=1 to size do
   begin
   for j:=1 to size do
@@ -16,5 +16,5 @@ for i:=1 to size do
     end;
   writeln;
   end;
-writeln('Сумма элементов по краям матрицы: ',sum);
+writeln('Г‘ГіГ¬Г¬Г  ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў ГЇГ® ГЄГ°Г ГїГ¬ Г¬Г ГІГ°ГЁГ¶Г»: ',sum);
 end.
