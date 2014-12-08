@@ -1,11 +1,10 @@
 var
   str: string;
   len, i, a: byte;
-
 begin
-  assign(input, '1.txt');
+  assign(input, '1.bin');
   reset(input);
-  assign(output, '2.txt');
+  assign(output, '2.bin');
   rewrite(output);
   read(str, input);
   len := length(str);
