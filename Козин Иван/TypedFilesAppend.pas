@@ -1,4 +1,4 @@
-program AppendTypedFilesV22; 
+program AppendTypedFiles; 
 var 
   f:file of integer; 
   i,k:integer; 
@@ -6,8 +6,8 @@ var
 begin 
 assign(f,'fileOfInt.dat'); 
 rewrite(f); 
-writeln('Для выхода из программы вместо ввода числа нажмите Enter.');
-writeln('Вводите числа в файл:'); 
+writeln('Г„Г«Гї ГўГ»ГµГ®Г¤Г  ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г» ГўГ¬ГҐГ±ГІГ® ГўГўГ®Г¤Г  Г·ГЁГ±Г«Г  Г­Г Г¦Г¬ГЁГІГҐ Enter.');
+writeln('Г‚ГўГ®Г¤ГЁГІГҐ Г·ГЁГ±Г«Г  Гў ГґГ Г©Г«:'); 
 repeat 
   begin 
   readln(str);
