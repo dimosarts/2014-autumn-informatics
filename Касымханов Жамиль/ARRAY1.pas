@@ -25,6 +25,7 @@ begin
   end;
   for I := K+1 to M-1 do
     S := S + A[I];
+    S := S - A[1];
   WriteLn('Cумма: ', S);
   ReadLn;
 end.
