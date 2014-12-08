@@ -10,21 +10,22 @@ end;
  surname,firstname:string[50];
  f: file of pupil;
  p,q: pupil; 
- i,j,x,n:integer;
+ i,j,x,n,k:integer;
+ s,s1:boolean;
 procedure add(f:file of pupil);
  var p:pupil;
  begin
- //writeln('������� �������, ���, ��� ������ ��������, ��� ����� ��������, ����� ������');
+ //writeln('Введите фамилию, имя, год начала обучения, год конца обучения, буква класса');
   //read(p.surname,p.firstname,p.year1,p.year2,p.letter);
-  writeln('������� �������');
+  writeln('Введите фамилию');
   readln(p.surname);
-  writeln( '���');
+  writeln( 'имя');
   readln(p.firstname);
-  writeln('��� ������ ��������');
+  writeln('год начала обучения');
   readln(p.year1);
-  writeln('��� ����� ��������');
+  writeln('год конца обучения');
   readln(p.year2);
-  writeln('����� ������');
+  writeln('буква класса');
   readln(p.letter);
   reset (f);
   seek(f,filesize(f));
@@ -36,9 +37,9 @@ procedure del(f:file of pupil);
  surname,firstname:string[50];
  x:integer;
   begin
-   writeln('������� �������');
+   writeln('Введете фамилию');
    readln(surname);
-   writeln('���');
+   writeln('имя');
    readln(firstname);
    reset(f);
     while not eof(f) do begin
@@ -68,8 +69,8 @@ procedure del(f:file of pupil);
    end;
 close(f);}
 end;   
-begin
-assign(f,'C:\����� �����\f.txt');
+{begin
+assign(f,'C:\Users\k01-221\Desktop\Новая папка\f.txt');
  reset(f);
  n:=filesize(f);
   for i:=1 to n-1 do begin
@@ -79,12 +80,12 @@ assign(f,'C:\����� �����\f.txt');
     q:=p;
     seek(f,j-1);
     read(f,p);
-    {if (q.surname=p.surname) and (q.firstname=p.firstname) and(p.year1=q.year1) and (p.year2=q.year2) and (p.letter=q.letter) then 
-    writeln ('������� ������������ � ����� ������');}
-    {if (q.surname=p.surname) and (q.firstname=p.firstname) and(p.year1=q.year1) and (p.year2=q.year2) and (p.letter<>q.letter) then
-    writeln ('������� ������������ � ������������ �������') ;}
-    if (q.surname=p.surname) and (q.firstname=p.firstname) then 
-    writeln ('������� ������������ � �����');
+    if (q.surname=p.surname) and (q.firstname=p.firstname) and(p.year1=q.year1) and (p.year2=q.year2) and (p.letter=q.letter) then 
+    writeln ('имеются однофамильцы в одном классе');
+    if (q.surname=p.surname) and (q.firstname=p.firstname) and(p.year1=q.year1) and (p.year2=q.year2) and (p.letter<>q.letter) then
+    writeln ('имеются однофамильцы в параллельных классов') ;
+   if (q.surname=p.surname) and (q.firstname=p.firstname) then
+    writeln ('имеются однофамильцы в школе');
     break;
    break;
     end;
@@ -92,9 +93,9 @@ assign(f,'C:\����� �����\f.txt');
 close(f);
 
   
-   {writeln('������� �������');
+   writeln('Введете фамилию');
    readln(surname);
-   writeln('���');
+   writeln('имя');
    readln(firstname);
    reset(f);
     while not eof(f) do begin
@@ -104,13 +105,97 @@ close(f);
      writeln(x);
      break;
      end;
-     end;}// ������� del
-//add(f);
-//del(f);
-{reset(f);
-whie not eof(f) do begin
-read(f,p);
-write(p.firstname,' ');
+     end;}  // функция del}
+begin
+repeat 
+ writeln('нажмите 1, чтобы добавить ученика');
+ writeln('нажмите 2, чтобы удалить ученика');
+ writeln('нажмите 3, чтобы просмотреть учеников '); 
+ writeln('нажмите 4, чтобы узнать имеются ли однофамильцы в одном классе');
+ writeln('нажмите 5, чтобы узнать имеются ли однофамильцы в параллельных классах');
+ writeln('нажмите 6, чтобы узнать имеются однофамильцы в школе');
+ writeln('нажмите 0, чтобы выйти');
+ readln(k);
+ if (k=1) then begin assign(f,'C:\Users\k01-221\Desktop\Новая папка\f.txt'); add(f); end;
+ if (k=2)then begin assign(f,'C:\Users\k01-221\Desktop\Новая папка\f.txt'); del(f); end;
+ if (k=3) then begin
+ assign(f,'C:\Users\k01-221\Desktop\Новая папка\f.txt');
+ reset(f);
+ writeln('фамилия':20,'имя':20,'начало обучения':20,'конец обучения':20,'буква':20);
+ while not eof(f) do begin
+  read(f,p);
+  writeln(p.surname:20,p.firstname:20,p.year1:20, p.year2:20, p.letter:20);
+ end;
+ close(f);
+ end; // проверка записи
+if (k=4) then  begin
+assign(f,'C:\Users\k01-221\Desktop\Новая папка\f.txt');
+ reset(f);
+ s:=false;
+ n:=filesize(f);
+  for i:=1 to n-1 do begin
+   for j:=i+1 to n do begin 
+    seek(f,i-1);
+    read(f,p);
+    q:=p;
+    seek(f,j-1);
+    read(f,p);
+    if (q.surname=p.surname) and (q.firstname=p.firstname) and (p.letter=q.letter) then begin
+    writeln ('имеются однофамильцы в одном классе');
+    s:=true;
+      break;
+   break;
+   end;
+    end;
+   end;
+   if (s=false) then writeln('не имеются');
+close(f);
 end;
-close(f);}// �������� ������
+if (k=5) then begin 
+assign(f,'C:\Users\k01-221\Desktop\Новая папка\f.txt');
+ reset(f);
+  s:=false;
+ n:=filesize(f);
+  for i:=1 to n-1 do begin
+   for j:=i+1 to n do begin 
+    seek(f,i-1);
+    read(f,p);
+    q:=p;
+    seek(f,j-1);
+    read(f,p);
+    if (q.surname=p.surname) and (q.firstname=p.firstname) and(p.year1=q.year1) and (p.year2=q.year2) and (p.letter<>q.letter) then begin
+    writeln ('имеются однофамильцы в параллельных классах');
+    s:=true;
+      break;
+   break;
+   end;
+    end;
+   end;
+    if (s=false) then writeln('не имеются');
+close(f);
+end;
+if (k=6) then begin 
+assign(f,'f.txt');
+ reset(f);
+  s:=false;
+ n:=filesize(f);
+  for i:=1 to n-1 do begin
+   for j:=i+1 to n do begin 
+    seek(f,i-1);
+    read(f,p);
+    q:=p;
+    seek(f,j-1);
+    read(f,p);
+    if (q.surname=p.surname) and (q.firstname=p.firstname)  then begin
+    writeln ('имеются однофамильцы в школе');
+    s:=true;
+      break;
+   end;
+    end;
+    if s then break;
+   end;
+    if not s then writeln('не имеются');
+close(f);
+end; 
+until k=0;
 end.
