@@ -4,9 +4,9 @@ var
   S, I, L, K, M, Max, Min: Integer;
 
 begin
-  WriteLn('Введите длину массива:');
+  WriteLn('Введите длину массива: ');
   ReadLn(L);
-  WriteLn('Введите массив:');
+  WriteLn('Введите массив: ');
   for I := 1 to L do
     Read(A[I]);
   ReadLn;
