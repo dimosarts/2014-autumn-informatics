@@ -1,4 +1,4 @@
-program arrays;
+program arrays1;
 var
   a,b:array [1..1024] of integer;
   i,j,n,ex,count,mostfreq,mfel,t:integer;
