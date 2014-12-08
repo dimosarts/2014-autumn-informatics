@@ -1,4 +1,4 @@
-program TypedFiles22; 
+program TypedFiles; 
 procedure divideOddAndEven(f1:file of integer;f2:file of integer;f3:file of integer); 
 var 
   i:integer; 
@@ -18,7 +18,7 @@ assign(f,'fileOfInt.dat');
 assign(g,'fileOfIntOdd.dat'); 
 assign(h,'fileOfIntEven.dat'); 
 reset(f); 
-writeln('Содержание исходного файла:'); 
+writeln('Г‘Г®Г¤ГҐГ°Г¦Г Г­ГЁГҐ ГЁГ±ГµГ®Г¤Г­Г®ГЈГ® ГґГ Г©Г«Г :'); 
 while not eof(f) do 
   begin 
   read(f,i); 
@@ -33,7 +33,7 @@ close(f);
 close(g); 
 close(h); 
 reset(g); 
-writeln('Содержание файла с нечетными числами:'); 
+writeln('Г‘Г®Г¤ГҐГ°Г¦Г Г­ГЁГҐ ГґГ Г©Г«Г  Г± Г­ГҐГ·ГҐГІГ­Г»Г¬ГЁ Г·ГЁГ±Г«Г Г¬ГЁ:'); 
 while not eof(g) do 
   begin 
   read(g,j); 
@@ -41,7 +41,7 @@ while not eof(g) do
   end; 
 close(g); 
 reset(h); 
-writeln('Содержание файла с четными числами:'); 
+writeln('Г‘Г®Г¤ГҐГ°Г¦Г Г­ГЁГҐ ГґГ Г©Г«Г  Г± Г·ГҐГІГ­Г»Г¬ГЁ Г·ГЁГ±Г«Г Г¬ГЁ:'); 
 while not eof(h) do 
   begin 
   read(h,k); 
