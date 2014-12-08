@@ -2,11 +2,11 @@ var
   S: String;
   I, P: Integer;
 begin
-  WriteLn('Введите строку:');
+  WriteLn('Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ:');
   ReadLn(S);
   for I:=1 to Length(S) do
     if Ord(S[I]) = 44 then
       P := I;
-  WriteLn('Позиция последней запятой:', P);
+  WriteLn('РџРѕР·РёС†РёСЏ РїРѕСЃР»РµРґРЅРµР№ Р·Р°РїСЏС‚РѕР№:', P);
   ReadLn;
 end.
