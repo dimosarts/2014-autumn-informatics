@@ -5,9 +5,9 @@ var
   S, I, J, L: Integer;
 
 begin
-  WriteLn('ВҐ•§®в• а†Іђ•а≠Ѓбвм ђ†ва®жл:');
+  WriteLn('¬ведите размерность матрицы: ');
   ReadLn(L);
-  WriteLn('ВҐ•§®в• ђ†ва®жг:');
+  WriteLn('¬ведите матрицу: ');
   for I := 1 to L do
     for J := 1 to L do
       Read(A[I, J]);
@@ -17,7 +17,7 @@ begin
   for J := 1 to L do
     S := S + A[1, J] + A[L, J];
   S := S - A[1, 1] - A[1, L] - A[L, 1] - A[L ,L];
-  WriteLn('Cгђђ† нЂ•ђ•≠вЃҐ ѓЃ ™а†пђ ђ†ва®жл:    ',S);
+  WriteLn('Cумма элементов по кра€м матрицы: ',S);
   ReadLn;
 
 
