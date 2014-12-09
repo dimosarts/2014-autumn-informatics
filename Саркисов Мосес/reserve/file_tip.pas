@@ -6,10 +6,11 @@ type
   end;
 var
   f:  file of book;
+  c:  char;
 procedure add(f: file of book);
   var p: book;
   begin
-  writeln('ВВедите название, автора и год издания(в виде ГГГГММДД) книги');
+  writeln('Введите название, автора и год издания(в виде ГГГГММДД) книги');
   read(p.title,p.author,p.release_date);
   reset(f);
   seek(f,filesize(f));
@@ -59,5 +60,14 @@ procedure later(f: file of book);
   end;
 begin
   assign(f,'books.dat');
-  later(f);
+  writeln('Выберите действие');
+  writeln('1 - Добавить книгу');
+  writeln('2 - Удалить книгу');  
+  writeln('Любой другой символ - Выход');
+  read(c);
+  case c of
+    '1': add(f);
+    '2': delete(f);
+    else exit;
+    end;
 end.
