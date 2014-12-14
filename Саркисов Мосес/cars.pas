@@ -6,9 +6,9 @@ type car=record
   release_date: integer;
   end;
 var
-  f: file of car;
-  s: string[20];
-  c: char;
+  f:        file of car;
+  s:        string[20];
+  switch:   char;
 procedure add(f: file of car);
   var p:  car;
   begin
@@ -69,8 +69,8 @@ procedure delete(f: file of car);
   close(f);
   end;
 procedure later(f: file of car);
-  var d:  integer;
-      p:  car;
+  var date:   integer;
+      p:      car;
   begin
   reset(f);
   if filesize(f)=0 then
@@ -79,16 +79,16 @@ procedure later(f: file of car);
     exit;
     end;
   writeln('Введите дату');
-  readln(d);
+  readln(date);
   writeln;
-  writeln('   ____________________________________________________________________________');
-  writeln('   ','|        Марка        ','|  Фамилия владельца  ','|    Номер    ','|  Дата выпуска  |');
+  writeln('  ____________________________________________________________________________');
+  writeln('  ','|        Марка        ','|  Фамилия владельца  ','|    Номер    ','|  Дата выпуска  |');
   while not eof(f) do
     begin
     read(f,p);
-    if p.release_date<=d then writeln('   |',p.brand:20,' |',p.surname:20,' |',p.lisense:12,' |',p.release_date:15,' |');
+    if p.release_date<=date then writeln('  |',p.brand:20,' |',p.surname:20,' |',p.lisense:12,' |',(p.release_date div 10000):8,'.',((p.release_date mod 10000)div 1000):1,((p.release_date mod 1000)div 100):1,'.',((p.release_date mod 100)div 10):1,(p.release_date mod 10):1,'. |');
     end;
-  writeln('   |_____________________|_____________________|_____________|________________|');
+  writeln('  |_____________________|_____________________|_____________|________________|');
   end;
 procedure clean(f: file of car);
   var switch:  char;
@@ -124,15 +124,16 @@ procedure show(f: file of car);
     exit;
     end;
   writeln;
-  writeln('   ____________________________________________________________________________');
-  writeln('   ','|        Марка        ','|  Фамилия владельца  ','|    Номер    ','|  Дата выпуска  |');
+  writeln('  ____________________________________________________________________________');
+  writeln('  ','|        Марка        ','|  Фамилия владельца  ','|    Номер    ','|  Дата выпуска  |');
   while not eof(f) do
     begin
     read(f,p);
-    writeln('   |',p.brand:20,' |',p.surname:20,' |',p.lisense:12,' |',p.release_date:15,' |');
+    writeln('  |',p.brand:20,' |',p.surname:20,' |',p.lisense:12,' |',(p.release_date div 10000):8,'.',((p.release_date mod 10000)div 1000):1,((p.release_date mod 1000)div 100):1,'.',((p.release_date mod 100)div 10):1,(p.release_date mod 10):1,'. |');
     end;
-  writeln('   |_____________________|_____________________|_____________|________________|');
+  writeln('  |_____________________|_____________________|_____________|________________|');
   close(f);
+  readln();
   end;
 begin
   assign(f,'cars.#');
@@ -143,8 +144,8 @@ begin
   writeln('4 - Очистить базу;');
   writeln('5 - Отобразить всю базу;');
   writeln('Любой другой символ - выход.');
-  read(c);
-  case c of
+  read(switch);
+  case switch of
     '1': begin
          readln(s);
          add(f);
@@ -158,4 +159,7 @@ begin
     '5': show(f);
     else exit;
     end;
+  writeln();
+  writeln('Программа завершена. Нажмите ENTER для выхода...');
+  readln();
 end.
