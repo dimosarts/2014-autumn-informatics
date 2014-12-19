@@ -1,27 +1,41 @@
 program Tfile;
 
+type
+  pupil = record
+    Name: string[20];
+    Surname: string[20];
+    Form: string[3];
+    FormWord: string[3];
+  end;
 
 var
-  f, g: text;
-  i,  j, k, m: integer;
-  s, s5, s2, s3, s4: string;
+  
+  p: pupil;
+  t: file of pupil;
+  i, n: integer;
+
+
 
 begin
-  j := 0;
-  k := 0;
-  
-  s4 := '-';
-  assign(f, 'C:\k01-221\2014-autumn-informatics\Маслов Дмитрий\FileF.txt');
-  assign(g, 'C:\k01-221\2014-autumn-informatics\Маслов Дмитрий\FileG.txt');
-  reset(f);
-  rewrite(g);
-  writeln('Исходный файл выглядит таким образом:');
-  while not eof(f) do
-  begin
-    readln(f, s);
-    writeln(s);
-    k := k + 1;
-  end;
-  reset(f);
- 
+  assign(t, 'class.db');
+  rewrite(t);
+  Writeln('Введите количество учеников');
+  readln(n);
+  for i := 1 to n do 
+    with p do 
+    begin
+      begin
+        write(i, '-ая фамилия:');
+        readln(surname);
+        write('Имя:');
+        readln(name);
+        write('Класс:');
+        readln(Form);
+        write('Буква класса:');
+        readln(FormWord);
+      end;
+      write(t, p);
+    end;
+  Writeln('Оформление файла закончено');
+  close(t);
 end.
