@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 158
-  Top = 309
+  Left = 213
+  Top = 380
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #210#229#242#240#232#241
-  ClientHeight = 240
-  ClientWidth = 318
+  ClientHeight = 261
+  ClientWidth = 282
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -82,7 +82,7 @@ object Form1: TForm1
   end
   object Button1: TButton
     Left = 184
-    Top = 168
+    Top = 160
     Width = 33
     Height = 25
     Caption = 'ok'
@@ -90,9 +90,18 @@ object Form1: TForm1
     Visible = False
     OnClick = Button1Click
   end
+  object Button2: TButton
+    Left = 168
+    Top = 217
+    Width = 65
+    Height = 25
+    Caption = #208#229#234#238#240#228#251
+    TabOrder = 4
+    OnClick = Button2Click
+  end
   object MainMenu1: TMainMenu
-    Left = 200
-    Top = 152
+    Left = 264
+    Top = 304
     object mnuGame: TMenuItem
       Caption = '&'#200#227#240#224
       object mnuNew: TMenuItem
