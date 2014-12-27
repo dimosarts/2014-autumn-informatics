@@ -7,14 +7,12 @@ var
 begin
 {randomize;
 L:=random(10);
-  FOR I := 1 to L do
-     FOR J := 1 to L do
-        A[I, J] := random(100)+1;
-  FOR I := 1 to L do
+   FOR I := 1 to L do
+      A[I] := random(10);
      begin
-        FOR J := 1 to L do
-                Write(A[I, J],' ');
-                    Writeln; end;}
+   FOR I := 1 to L do
+       Write(A[I],' ');
+          Writeln; end;}
   WriteLn('Vvedite razmernost');
   ReadLn(L);
   WriteLn('Vvedite matricu');

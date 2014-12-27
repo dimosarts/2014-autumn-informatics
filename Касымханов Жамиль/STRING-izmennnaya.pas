@@ -19,5 +19,3 @@ begin
     var finish:=System.DateTime.Now;
     writeln((finish-start).TotalMilliseconds);
 end.
-
-{3213,12,31,321,32,132,1321,3}
