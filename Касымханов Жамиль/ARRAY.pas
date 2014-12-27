@@ -21,7 +21,7 @@ L:=random(10);
 
   for I:= 1 to L do
   begin
-    if A[I] >= Max then
+    if A[I] >= Max then 
     begin
       Max := A[I];
       I1 := I;
