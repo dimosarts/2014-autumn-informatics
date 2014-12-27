@@ -563,14 +563,18 @@ begin
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
-var f:textfile; x,a,fname:string;
+var f:textfile; x,a,fname:string; k:integer;
 begin
   assignfile(f,'hi.ini');
   reset(f);
+  k:=4;
   while not EOF(f) do
   begin
     readln(f, a);
-    x:=x+#13+a;
+    if k mod 3=1 then x:=x+a+'  ';
+    if k mod 3=2 then x:=x+a+'    ';
+    if k mod 3=0 then x:=x+a+#13;
+    k:=k+1;
   end;
   closefile(f);
    showmessage(x);
