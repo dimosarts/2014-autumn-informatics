@@ -182,7 +182,7 @@ end;
 
 procedure setspeed(s : Byte);
 begin
-  Form1.Label2.Caption := 'Скорость: ' + IntToStr(s);
+  Form1.Label2.Caption := 'Speed: ' + IntToStr(s);
   Form1.Timer1.Interval := 500 - (s-1) * 100;
 end;
 
@@ -427,11 +427,11 @@ begin
   else
   begin
     Form1.Timer1.Enabled := False;
-    Application.MessageBox(PChar('Game Over!'),PChar('Тетрис'),
+    Application.MessageBox(PChar('Game Over!'),PChar('Tetris'),
     MB_ICONINFORMATION+MB_OK);
      for a := 1 to 10 do
       if scores > pl[a].score then  begin
-       Application.MessageBox(PChar('New record!'+#13+ 'Enter your nick!'),PChar('Тетрис'),
+       Application.MessageBox(PChar('New record!'+#13+ 'Enter your nick!'),PChar('Tetris'),
     MB_ICONINFORMATION+MB_OK);
     Form1.Button1.Visible:=True;
     Form1.Edit1.Visible:=True;
@@ -482,7 +482,7 @@ begin
     19: begin
           if Timer1.Enabled then
           begin
-            Label3.Caption := 'Пауза!';
+            Label3.Caption := 'Pause!';
             Timer1.Enabled := False;
           end
           else
@@ -499,8 +499,8 @@ var te : Boolean;
 begin
   te := Timer1.Enabled;
   if te then Timer1.Enabled := False;
-  if Application.MessageBox(PChar('Вы действительно хотите начать новую игру?'),
-  PChar('Тетрис'), MB_ICONQUESTION+MB_YESNO) = IDYES then
+  if Application.MessageBox(PChar('Are you sure to start a new game?'),
+  PChar('Tetris'), MB_ICONQUESTION+MB_YESNO) = IDYES then
   newgame
   else
   Timer1.Enabled := te;
@@ -516,7 +516,7 @@ var mh : String;
 begin
   {HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics, MenuHeight}
   ModifyMenu(MainMenu1.Handle, 1, mf_ByPosition or mf_Popup
-  or mf_Help, mnuHelp.Handle, '&Справка');
+  or mf_Help, mnuHelp.Handle, '&About');
   reg := TRegistry.Create;
   reg.RootKey := HKEY_CURRENT_USER;
   reg.OpenKey('\Control Panel\Desktop\WindowMetrics', True);
@@ -563,7 +563,7 @@ begin
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
-var f:textfile; x,a,fname:string; k:integer;
+var f:textfile; x,x1,a,fname:string; k,l,i:integer;
 begin
   assignfile(f,'hi.ini');
   reset(f);
@@ -572,12 +572,21 @@ begin
   begin
     readln(f, a);
     if k mod 3=1 then x:=x+a+'  ';
-    if k mod 3=2 then x:=x+a+'    ';
+    if k mod 3=2 then
+    begin
+    x:=x+a+'    ';
+    l:=Length(a);
+    for i:=1 to 17-l do x:=x+'  ';
+    l:=0;
+    end;
     if k mod 3=0 then x:=x+a+#13;
     k:=k+1;
   end;
   closefile(f);
-   showmessage(x);
+   l:=Length(x);
+  for i:=1 to l do if (x[i]='s')  or (x[i]='c') or (x[i]='o') or (x[i]='r') or (x[i]='e') or (x[i]='n') or (x[i]='a') or (x[i]='m') or (x[i]='=') then x[i]:=' ';
+   x1:='№           Name                   Score'+#13+x;
+   showmessage(x1);
    Form1.Button2.Visible:=False;
    Form1.Button2.Visible:=True;
   end;
