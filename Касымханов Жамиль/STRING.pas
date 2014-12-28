@@ -18,6 +18,10 @@ begin
 
     var finish:=System.DateTime.Now;
     writeln((finish-start).TotalMilliseconds);
+<<<<<<< HEAD
     readln;
 
 end.
+=======
+end.
+>>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
