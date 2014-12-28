@@ -1,4 +1,6 @@
 program ololo;
+
+
 var
 
   A: array [1..100, 1..100] of Integer;
@@ -28,7 +30,7 @@ L:=random(10);
      for J := 2 to L-1 do
       S := S - A[I, J];
   WriteLn('Summa: ',S);
-
+  readln;
 
 
 end.
