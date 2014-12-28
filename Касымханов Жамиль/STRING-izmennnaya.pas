@@ -14,8 +14,10 @@ begin
   p:=0;
   For I:= Length(S) downto 1 do
   If S[I] = ',' then begin p:=I; break;  end;
-  WriteLn('Poziciya poslednei zapyatoi:', P);
+  WriteLn('Poziciya poslednei zapyatoi: ', P);
 
     var finish:=System.DateTime.Now;
     writeln((finish-start).TotalMilliseconds);
+    readln;
+
 end.
