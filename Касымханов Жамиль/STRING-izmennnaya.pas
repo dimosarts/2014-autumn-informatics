@@ -20,7 +20,7 @@ begin
     writeln((finish-start).TotalMilliseconds);
 <<<<<<< HEAD
     readln;
-
+ 
 end.
 =======
 end.
