@@ -578,7 +578,8 @@ begin
   end;
   closefile(f);
    showmessage(x);
-
+   Form1.Button2.Visible:=False;
+   Form1.Button2.Visible:=True;
   end;
 
 procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
