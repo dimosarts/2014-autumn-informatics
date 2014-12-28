@@ -1,10 +1,11 @@
+
 var
 
   I, Min, Max, L: Integer;
   I1, I2: Integer;
   A: array[1..100] of Integer;
   Summ: Integer;
-
+  
 begin
 
 randomize;
@@ -41,4 +42,6 @@ L:=random(10);
       Summ := Summ + A[I];
 
   WriteLn('Summa: ',Summ);
+  readln;
+
 end.
