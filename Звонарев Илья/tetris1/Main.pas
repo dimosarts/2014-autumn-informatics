@@ -25,6 +25,7 @@ type
     mnuAbout: TMenuItem;
     Edit1: TEdit;
     Button1: TButton;
+    Button2: TButton;
     procedure mnuNewClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
@@ -35,6 +36,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -559,6 +561,25 @@ procedure TForm1.mnuAboutClick(Sender: TObject);
 begin
   Form2.ShowModal;
 end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var f:textfile; x,a,fname:string; k:integer;
+begin
+  assignfile(f,'hi.ini');
+  reset(f);
+  k:=4;
+  while not EOF(f) do
+  begin
+    readln(f, a);
+    if k mod 3=1 then x:=x+a+'  ';
+    if k mod 3=2 then x:=x+a+'    ';
+    if k mod 3=0 then x:=x+a+#13;
+    k:=k+1;
+  end;
+  closefile(f);
+   showmessage(x);
+
+  end;
 
 procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
