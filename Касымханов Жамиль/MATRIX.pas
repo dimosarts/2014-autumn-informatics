@@ -22,7 +22,7 @@ L:=random(10);
     for J := 1 to L do
     begin
       Read(A[I, J]);
-
+ 
       S := S + A[I, J];
 
       S := S + A[I, J]; 
