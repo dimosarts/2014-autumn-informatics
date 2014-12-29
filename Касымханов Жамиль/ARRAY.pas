@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
 var
 
   I, Min, Max, L: Integer;
   I1, I2: Integer;
   A: array[1..100] of Integer;
   Summ: Integer;
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
 begin
 
 randomize;
@@ -29,11 +21,11 @@ L:=random(10);
 
   for I:= 1 to L do
   begin
-<<<<<<< HEAD
+
     if A[I] >= Max then 
-=======
+
     if A[I] >= Max then 
->>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
+
     begin
       Max := A[I];
       I1 := I;
@@ -53,10 +45,7 @@ L:=random(10);
       Summ := Summ + A[I];
 
   WriteLn('Summa: ',Summ);
-<<<<<<< HEAD
+
   readln;
 
 end.
-=======
-end.
->>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
