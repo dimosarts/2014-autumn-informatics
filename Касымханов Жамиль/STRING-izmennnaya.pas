@@ -17,6 +17,7 @@ begin
   WriteLn('Poziciya poslednei zapyatoi: ', P);
 
     var finish:=System.DateTime.Now;
+<<<<<<< HEAD
     writeln('Vremya s ciklom DOWNTO: ', (finish-start).TotalMilliseconds);
 k:=((finish-start).TotalMilliseconds);
 
@@ -35,3 +36,9 @@ z:=abs(k-m);
 
 Writeln('Raznica vypolneniya 2-uh ciklov: ',z);
 end.
+=======
+    writeln((finish-start).TotalMilliseconds);
+ 
+    readln;
+end.
+>>>>>>> 8e9af6ca833b34c3ec25a2a7d681a64139845daf
