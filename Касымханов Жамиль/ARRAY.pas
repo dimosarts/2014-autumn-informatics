@@ -23,7 +23,7 @@ L:=random(10);
   begin
 
     if A[I] >= Max then 
-
+  
     if A[I] >= Max then 
 
     begin
