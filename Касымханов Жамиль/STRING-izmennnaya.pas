@@ -18,6 +18,6 @@ begin
 
     var finish:=System.DateTime.Now;
     writeln((finish-start).TotalMilliseconds);
-
+ 
     readln;
 end.
