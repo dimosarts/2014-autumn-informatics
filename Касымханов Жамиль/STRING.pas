@@ -6,7 +6,7 @@ var
 
 begin
   WriteLn('Vvedite stroku:');
-  ReadLn(S);
+  ReadLn(S); 
 
     var start:=System.DateTime.Now;
 

@@ -11,7 +11,7 @@ var
 
 begin
 {randomize;
-L:=random(10);
+L:=random(10); 
    FOR I := 1 to L do
       A[I] := random(10);
      begin

@@ -20,5 +20,13 @@ begin
     writeln((finish-start).TotalMilliseconds);
 
     readln;
+<<<<<<< HEAD
 
 end.
+=======
+ 
+end.
+=======
+end.
+>>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
+>>>>>>> 7ad7d213cb7cd263a3f168b9604715d1bca04074

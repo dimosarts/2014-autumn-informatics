@@ -30,7 +30,7 @@ L:=random(10);
   for I:= 1 to L do
   begin
 <<<<<<< HEAD
-    if A[I] >= Max then
+    if A[I] >= Max then 
 =======
     if A[I] >= Max then 
 >>>>>>> 8c8fbcfe6d39c4046e2775ed84d44baabbe90e7a
