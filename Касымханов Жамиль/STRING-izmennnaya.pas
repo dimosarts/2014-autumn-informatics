@@ -11,9 +11,11 @@ begin
     var start:=System.DateTime.Now;
 
   for x := 1 to 1000000000 do
+  begin
   P:=0;
   For I:= Length(S) downto 1 do
       If S[I] = ',' then begin P:=I; break;  end;
+  end;
   WriteLn('Poziciya poslednei zapyatoi: ', P);
 
     var finish:=System.DateTime.Now;
@@ -24,9 +26,11 @@ k:=((finish-start).TotalMilliseconds);
     var start1:=System.DateTime.Now;
 
   for y := 1 to 1000000000 do
+  begin
   O:=0;
   for J:=1 to Length(S) do
       if S[J]=',' then O:= J;
+  end;
   WriteLn('Poziciya poslednei zapyatoi: ', O);
 
     var finish1:=System.DateTime.Now;
