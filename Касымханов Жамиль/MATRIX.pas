@@ -23,7 +23,7 @@ begin
   begin
     for J:= 1 to L do
       Write(A[I, J],'  ');
-    WriteLn;
+    WriteLn; 
   end;
   WriteLn('Summa: ',S);
 end.
