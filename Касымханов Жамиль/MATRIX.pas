@@ -21,4 +21,5 @@ begin
   Summ := Summ + A[1, 1]  + A[L, L] + A[1, L] + A[L, 1];
   WriteLn('Summa: ');
   WriteLn(Summ);
+
 end.
