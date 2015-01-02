@@ -14,12 +14,11 @@ begin
   begin
     for J:=1 to L do
       Write(A[I, J],'  ');
-    WriteLn;
+    WriteLn; 
   end;
   for I:=2 to L-1 do
     Summ := Summ + A[1, I] + A[L, I] + A[I, 1]  + A[I, L];
   Summ := Summ + A[1, 1]  + A[L, L] + A[1, L] + A[L, 1];
   WriteLn('Summa: ');
   WriteLn(Summ);
-  ReadLn;
-end. 
+end.
