@@ -1,29 +1,25 @@
-program ololo;
 var
-
-  A: array [1..100, 1..100] of Integer;
-  S, I, J, L: Integer;
-
+  A: array[1..100,1..100] of Integer;
+  I, L, J: Integer;
+  Summ: Integer;
 begin
   Randomize;
-  WriteLn('Vvedite razmernost');
+  WriteLn('Vvedite razmernost: ');
   ReadLn(L);
-  S := 0;
-  for I := 1 to L do
-    for J := 1 to L do
-    begin
+  for I:=1 to L do
+    for J:=1 to L do
       A[I, J] := Random(10);
-      S := S + A[I, J];
-    end;
-  for I := 2 to L-1 do
-     for J := 2 to L-1 do
-      S := S - A[I, J];
   WriteLn('Matrix: ');
-  for I:= 1 to L do
+  for I:=1 to L do
   begin
-    for J:= 1 to L do
+    for J:=1 to L do
       Write(A[I, J],'  ');
     WriteLn;
   end;
-  WriteLn('Summa: ',S);
-end.
+  for I:=2 to L-1 do
+    Summ := Summ + A[1, I] + A[L, I] + A[I, 1]  + A[I, L];
+  Summ := Summ + A[1, 1]  + A[L, L] + A[1, L] + A[L, 1];
+  WriteLn('Summa: ');
+  WriteLn(Summ);
+  ReadLn;
+end. 
